@@ -1,24 +1,25 @@
 import React from 'react';
+// import icon from './search-icon.svg';
 
-const searchStyle = {
-  padding: '10px',
-  outlineStyle: 'none',
-  borderRadius: '10px',
-  border: 'none'
-}
-
-const SearchBox = ({ searchfield, onSearchChange }) => {
+const SearchBox = ({ query, onSearchChange, onBtnSubmit }) => {
   return (
-    <div className="SearchBox">
+    <form className="SearchBox" onSubmit={onBtnSubmit}>
       <input
         className="input"
-        style={searchStyle}
         type="search"
+        name="searchfield"
         placeholder="Type a city name"
-        onChange={onSearchChange}
-        autoFocus
+        autoFocus={true}
+
       />
-    </div>
+      <button
+        type='submit'
+        className='search-btn'
+        name="search-btn"
+        >
+        Search
+      </button>
+    </form>
   )
 }
 

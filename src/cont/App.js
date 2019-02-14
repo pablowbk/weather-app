@@ -18,6 +18,7 @@ class App extends Component {
       isLoaded: false
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -44,7 +45,25 @@ class App extends Component {
 
 // HANDLE SEARCH INPUT VALUE
   handleSearchChange(event) {
-    this.setState({ query: event.target.value })
+    this.setState({ query: event.target.value });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    if (event.target.elements.searchfield.value.length > 0) {
+      this.setState({query: event.target.elements.searchfield.value});
+      fetch(this.state.defaultURL + '&q=' + this.state.query)
+        .then(response => response.json())
+        .then(jsonData => {
+          jsonData.current.condition.icon = jsonData.current.condition.icon.replace('64x64','128x128');
+          this.setState({clima: jsonData });
+        })
+        .catch(err =>  {
+          this.setState({error: true})
+          console.log('an error occurred: ', err)
+        })
+      }
+
   }
 
 
@@ -52,12 +71,16 @@ class App extends Component {
     const { location, current, forecast } = this.state.clima;
 
     if (!this.state.error) {
-      console.log('everything looks good...');
+      console.log('Rendering, everything looks good...');
     }
 
     return this.state.isLoaded ? (
       <div className="App">
-        <SearchBox onSearchChange={this.handleSearchChange}/>
+        <SearchBox
+          onSearchChange={this.handleSearchChange}
+          onBtnSubmit={this.handleSubmit}
+          query={this.state.query}
+        />
         <Main
           current={current}
           location={location}
@@ -65,7 +88,7 @@ class App extends Component {
         <Forecast forecast={forecast}/>
       </div>
     ) : (
-      <div className="App">Loading...</div>
+      <div className="loading">Loading...</div>
     )
 
 

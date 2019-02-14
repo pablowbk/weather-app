@@ -2,6 +2,10 @@ html {
   line-height: normal;
 }
 
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
 body {
   min-height: 100vh;
   margin: 0;
@@ -13,37 +17,95 @@ body {
 
 .App {
   text-align: center;
-  border: 2px solid blue;
   border-radius: 5px;
-  padding: 20px;
+  padding: 2em;
+  margin: auto;
   box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
 
 }
 
-.MainTemp {
+/* MAIN COMP */
+.Main {
   padding: 20px;
-  font-size: 1.5em;
-  background-image: linear-gradient(#6ebcfc, #65fede, #6ebcfc);
-  border: 2px solid #fff;
   border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-
 }
 
+.info {
+  flex: 1;
+  align-self: center;
+  text-align: right;
+  padding: 20px;
+}
+
+.condition {
+  display: flex;
+}
+
+.main-temp {
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+.icon-weather {
+}
+
+
+.temp {
+  font-size: 4rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* SEARCHBOX COMP */
 .SearchBox {
   padding: 20px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  outline-style: none;
+  text-align: center;
   font-size: 1.5em;
-  background-image: linear-gradient(#65fede, #6ebcfc);
-  border: 2px solid #fff;
+  box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.SearchBox input {
+  border: none;
+  padding: 10px;
+}
+
+.search-btn {
+  /* position: absolute; */
+  /* top: 50%;
+  right: 0; */
+  /* transform: translateY(-50%); */
+  padding: 10px;
+  background: none;
+  border: 1px solid rgba(0,0,0,0);
+  border-bottom: 1px solid rgba(0,0,0,0);
+  color: rgb(7, 111, 170);
+}
+
+.search-btn:hover {
+  border: 1px solid rgba(7, 111, 170,0.5);
   border-radius: 10px;
+  box-shadow: 0 5px 10px -5px rgba(0,0,0,0.2);
+  cursor: pointer;
 }
 
 
+/* FORECAST COMP */
 .Forecast {
   padding: 20px;
   font-size: 1.5em;
-  background-image: linear-gradient(#6ebcfc, #65fede);
   border: 2px solid #fff;
   border-radius: 10px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.flaticon {
+  position: absolute;
+  bottom: 0;
 }

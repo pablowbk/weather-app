@@ -1,0 +1,61 @@
+Code snippets
+
+
+function addListAfterClick() {
+    if (inputLength() > 0) {
+        createListElement();
+    }
+}
+
+function addListAfterKeypress(event) {
+    if (inputLength() > 0 && event.keyCode === 13) {
+        createListElement();
+    }
+}
+
+button.addEventListener("click", addListAfterClick);
+
+input.addEventListener("keypress", addListAfterKeypress);
+
+
+
+
+
+
+
+
+const Form = props => (
+	<form onSubmit={props.getWeather}>
+		<input type="text" name="city" placeholder="City..."/>
+		<input type="text" name="country" placeholder="Country..."/>
+		<button>Get Weather</button>
+	</form>
+);
+
+
+getWeather = async (e) => {
+    e.preventDefault();
+    const city = e.target.elements.city.value;
+    const country = e.target.elements.country.value;
+    const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_KEY}&units=metric`);
+    const data = await api_call.json();
+    if (city && country) {
+      this.setState({
+        temperature: data.main.temp,
+        city: data.name,
+        country: data.sys.country,
+        humidity: data.main.humidity,
+        description: data.weather[0].description,
+        error: ""
+      });
+    } else {
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: "Please enter the values."
+      });
+    }
+  }
