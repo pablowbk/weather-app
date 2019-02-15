@@ -8,7 +8,7 @@ const SearchBox = ({ query, onSearchChange, onBtnSubmit }) => {
         className="input"
         type="search"
         name="searchfield"
-        placeholder="Type a city name"
+        placeholder="barrio/ciudad/pais/coords..."
         autoFocus={true}
 
       />
@@ -17,7 +17,7 @@ const SearchBox = ({ query, onSearchChange, onBtnSubmit }) => {
         className='search-btn'
         name="search-btn"
         >
-        Search
+        Buscar
       </button>
     </form>
   )

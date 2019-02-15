@@ -4,17 +4,20 @@ const Main = ({current, location}) => {
   const logo = current.condition.icon;
   return (
     <div className='Main'>
-      <div className="condition">
-        <div className="info">
-          <p className="subtext">{current.condition.text}</p>
-          <p className="feelslike">ST: {current.feelslike_c} °C, Hum: {current.humidity} %</p>
+      <h2 className="location">{location.name}, {location.country}</h2>
+
+      <div className='main-temp'>
+        <div className="temp-cond">
+          <img src={logo} alt="imagen de clima" className="icon-weather" />
+          <h1 className="temp">{current.temp_c} °C</h1>
         </div>
       </div>
-      <div className='main-temp'>
-        <img src={logo} alt="imagen de clima" className="icon-weather" />
-        <h1 className="temp">{current.temp_c} °C</h1>
+
+      <p className="subtext">{current.condition.text}</p>
+      <div className="conditions">
+        <p className="feelslike">ST: {current.feelslike_c} °C</p>
+        <p className="humidity">Hum: {current.humidity} %</p>
       </div>
-      <h2 className="city">{location.name}, {location.country}</h2>
 
     </div>
   );

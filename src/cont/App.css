@@ -8,11 +8,11 @@ html {
 
 body {
   min-height: 100vh;
-  margin: 0;
-  display: flex;
+  margin: 0 auto;
+  /* display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 }
 
 .App {
@@ -21,7 +21,6 @@ body {
   padding: 2em;
   margin: auto;
   box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
-
 }
 
 /* MAIN COMP */
@@ -31,15 +30,17 @@ body {
 }
 
 .info {
-  flex: 1;
-  align-self: center;
-  text-align: right;
+  /* flex: 1;
+  align-self: center; */
+  /* text-align: right; */
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.condition {
-  display: flex;
-}
+
 
 .main-temp {
   display: flex;
@@ -47,14 +48,35 @@ body {
   align-items: center;
 }
 
-.icon-weather {
+.temp-cond {
+  display: flex;
+  align-items: center;
 }
 
+.icon-weather {
+
+}
 
 .temp {
   font-size: 4rem;
   padding: 0;
   margin: 0;
+}
+
+.conditions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+p {
+  font-size: 1.4em;
+  padding: 0;
+  margin: 0;
+}
+
+.subtext {
+
 }
 
 /* SEARCHBOX COMP */
@@ -69,6 +91,7 @@ body {
   text-align: center;
   font-size: 1.5em;
   box-shadow: 0 0px 20px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
 }
 
 .SearchBox input {
@@ -98,6 +121,7 @@ body {
 
 /* FORECAST COMP */
 .Forecast {
+  display: none; /*temp*/
   padding: 20px;
   font-size: 1.5em;
   border: 2px solid #fff;
@@ -109,3 +133,7 @@ body {
   position: absolute;
   bottom: 0;
 }
+
+
+
+/*MEDIA QUERIEEEEEEEEEEEESSS */
