@@ -51,7 +51,7 @@ class App extends Component {
   handleSubmit(event) {
     event.preventDefault();
     if (event.target.elements.searchfield.value.length > 0) {
-      this.setState({query: event.target.elements.searchfield.value});
+      // this.setState({query: event.target.elements.searchfield.value});
       fetch(this.state.defaultURL + '&q=' + this.state.query)
         .then(response => response.json())
         .then(jsonData => {
@@ -86,6 +86,7 @@ class App extends Component {
           location={location}
         />
         <Forecast forecast={forecast}/>
+
       </div>
     ) : (
       <div className="loading">Loading...</div>

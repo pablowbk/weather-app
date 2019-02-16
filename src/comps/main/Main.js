@@ -9,7 +9,7 @@ const Main = ({current, location}) => {
       <div className='main-temp'>
         <div className="temp-cond">
           <img src={logo} alt="imagen de clima" className="icon-weather" />
-          <h1 className="temp">{current.temp_c} °C</h1>
+          <h1 className="temp">{current.temp_c}°C</h1>
         </div>
       </div>
 
