@@ -6,7 +6,7 @@ import Main from '../comps/main/Main';
 import Forecast from '../comps/forecast/Forecast';
 
 // https://api.apixu.com/v1/forecast.json?key=<YOUR_API_KEY>&q=Buenos+Aires&days=6
-const API_KEY = '68fe63fc1526403ba07110828191202';
+const API_KEY = '52e199fdabf04dcbb76111911191702';
 
 class App extends Component {
   constructor(props){
