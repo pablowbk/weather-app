@@ -82,7 +82,7 @@ p {
 
 /* SEARCHBOX COMP */
 .SearchBox {
-  padding: 20px;
+  padding: 10px 20px;
   position: relative;
   display: flex;
   justify-content: space-between;

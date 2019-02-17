@@ -6,6 +6,7 @@ import Main from '../comps/main/Main';
 import Forecast from '../comps/forecast/Forecast';
 
 // https://api.apixu.com/v1/forecast.json?key=<YOUR_API_KEY>&q=Buenos+Aires&days=6
+const API_KEY = '68fe63fc1526403ba07110828191202';
 
 class App extends Component {
   constructor(props){
@@ -13,7 +14,7 @@ class App extends Component {
     this.state = {
       clima: {},
       query: 'buenos aires',
-      defaultURL: `https://api.apixu.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY}&lang=es&days=6`,
+      defaultURL: `https://api.apixu.com/v1/forecast.json?key=${API_KEY}&lang=es&days=7`,
       error: false,
       isLoaded: false
     };
@@ -48,6 +49,7 @@ class App extends Component {
     this.setState({ query: event.target.value });
   }
 
+// HANDLE FORM SUBMIT EVENT
   handleSubmit(event) {
     event.preventDefault();
     if (event.target.elements.searchfield.value.length > 0) {
