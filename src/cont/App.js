@@ -6,7 +6,6 @@ import Main from '../comps/main/Main';
 import Forecast from '../comps/forecast/Forecast';
 
 // https://api.apixu.com/v1/forecast.json?key=<YOUR_API_KEY>&q=Buenos+Aires&days=6
-const API_KEY = '52e199fdabf04dcbb76111911191702';
 
 class App extends Component {
   constructor(props){
@@ -14,7 +13,7 @@ class App extends Component {
     this.state = {
       clima: {},
       query: 'buenos aires',
-      defaultURL: `https://api.apixu.com/v1/forecast.json?key=${API_KEY}&lang=es&days=7`,
+      defaultURL: `https://api.apixu.com/v1/forecast.json?key=52e199fdabf04dcbb76111911191702&lang=es&days=7`,
       error: false,
       isLoaded: false
     };
