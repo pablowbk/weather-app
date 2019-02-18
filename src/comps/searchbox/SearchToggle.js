@@ -1,9 +1,11 @@
 import React from 'react';
 
-const searchToggle = (props) => {
+const SearchToggle = (props) => {
   return (
     <button className='toggle'>
       toggle button
     </button>
   );
 }
+
+export default SearchToggle;
