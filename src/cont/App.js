@@ -4,8 +4,8 @@ import './App.css';
 import SearchBox from '../comps/searchbox/SearchBox';
 import Main from '../comps/main/Main';
 import Forecast from '../comps/forecast/Forecast';
-import SearchToggle from '../comps/searchbox/SearchToggle';
 import Loader from '../comps/loader/Loader';
+// import SearchToggle from '../comps/searchbox/SearchToggle';
 
 // https://api.apixu.com/v1/forecast.json?key=https://wt-9fc35a21c84ecf4c970badb28c44af3b-0.sandbox.auth0-extend.com/weather-apixu&lang=es&days=7&q=-37.838848,-57.50456319999999
 // https://api.apixu.com/v1/forecast.json?key=<YOUR_API_KEY>&q=Buenos+Aires&days=6
@@ -32,9 +32,8 @@ class App extends Component {
     navigator.geolocation.getCurrentPosition((position) => {
       this.setState({query:`${position.coords.latitude},${position.coords.longitude}`});
 
-      });
       // FETCH DATA FROM API
-    fetch(this.state.defaultURL + '&q=' + this.state.query)
+      fetch(this.state.defaultURL + '&q=' + this.state.query)
       .then(response => response.json())
       .then(jsonData => {
         jsonData.current.condition.icon = jsonData.current.condition.icon.replace('64x64','128x128')
@@ -47,6 +46,8 @@ class App extends Component {
         this.setState({error: true})
         console.log('an error occurred: ', err)
       })
+      //End of Fetch
+    });
   }
 
 // HANDLE SEARCH INPUT VALUE

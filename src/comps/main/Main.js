@@ -12,6 +12,17 @@ const Main = ({current, location}) => {
           <h1 className="temp">{current.temp_c}°C</h1>
         </div>
       </div>
+      <p className="uv">
+        <span>Indice UV: {current.uv}</span>
+        <span>
+          <progress
+            max="11"
+            value={current.uv}
+            style={{
+              background: current.uv < 9 ? 'rgb(53, 173, 63)' : null
+            }}>
+            </progress></span>
+      </p>
 
       <p className="subtext">{current.condition.text}</p>
       <div className="conditions">

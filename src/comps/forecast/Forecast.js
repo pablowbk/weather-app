@@ -1,11 +1,11 @@
 import React from 'react';
 import Card from './Card';
 
-const Forecast = () => {
+const Forecast = ({forecast}) => {
   return (
     <div className="Forecast">
       <button className='btn-getDays'
-              onClick={() => console.log('clicking')}
+              onClick={() => console.log('clicking', forecast.forecastday)}
               >
       Pronóstico a 5 días
       </button>

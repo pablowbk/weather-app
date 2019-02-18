@@ -4,7 +4,7 @@ import React from 'react';
 const Loader = () => {
     return (
         <div className="wrapper">
-            <h3>Loading...</h3>
+            <h3>Iniciando...</h3>
             <div className="spinner spinner-1"></div>
         </div>
     );

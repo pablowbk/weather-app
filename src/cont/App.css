@@ -10,20 +10,25 @@ html {
 }
 
 body {
-  min-height: 100vh;
+  /* min-height: 100vh; */
   margin: 0 auto;
-  /* display: flex;
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center; */
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .App {
+  min-height: 100vh;
   text-align: center;
   border-radius: 5px;
   padding: 2em;
   margin: auto;
   box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
 
 /* MAIN COMP */
@@ -73,6 +78,16 @@ body {
   padding: .5em;
 }
 
+.uv {
+  padding: 0;
+  margin: -20px 0 20px 0;
+  font-size: 1em;
+}
+
+.uv span {
+  padding: 0 10px;
+}
+
 p {
   font-size: 1.4em;
   padding: 0;
@@ -88,16 +103,13 @@ p {
   padding: 0;
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   border: none;
   outline-style: none;
-  text-align: center;
   font-size: 1.5em;
   box-shadow: 0 0px 20px -5px rgba(7, 111, 170,0.5);
   overflow: hidden;
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 900px;
+
 }
 
 .SearchBox input {
@@ -112,36 +124,36 @@ p {
   /* top: 50%;
   right: 0; */
   /* transform: translateY(-50%); */
-  padding: 10px;
-  margin-left: 20px;
   background: none;
   border: 1px solid rgba(0,0,0,0);
-  border-bottom: 1px solid rgba(0,0,0,0);
   color: rgb(7, 111, 170);
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
 }
 
-.search-btn:hover {
-  border: 1px solid rgba(7, 111, 170,0.5);
-  border-radius: 10px;
+.SearchBox .search-btn:hover {
+  /* border: 1px solid rgba(7, 111, 170,0.5); */
   box-shadow: 0 5px 10px -5px rgba(0,0,0,0.2);
   cursor: pointer;
 }
 
+.SearchBox .search-btn:hover #lupita-svg {
+  cursor: pointer;
+  fill: #fff;
+}
 
 .SearchBox #lupita-svg {
   padding: 10px;
   height: 50px;
-  width: 70px;
+  width: 80px;
   background-color: rgba(7, 111, 170,1);
   fill: #ddd;
   transition: all 200ms ease;
+  pointer-events: none;
 }
 
-.SearchBox #lupita-svg:hover {
-  cursor: pointer;
-  fill: #fff;
-}
 
 
 /* FORECAST COMP */
@@ -183,12 +195,18 @@ p {
 
 /*MEDIA QUERIEEEEEEEEEEEESSS */
 @media (max-width:500px) {
+  body {
+  }
+
   .App {
-    padding: 2em 0;
+    /* min-height: auto; */
+    justify-content: flex-start;
+    padding: 1em 0;
   }
 
   .SearchBox {
     margin: 0 10px;
+    font-size: 1.4em;
   }
 
   .SearchBox input[placeholder]{
