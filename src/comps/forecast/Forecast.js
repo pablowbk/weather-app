@@ -9,10 +9,9 @@ const Forecast = ({forecast}) => {
               >
       Pronóstico a 5 días
       </button>
-      {/* <Card />
-      <Card />
-      <Card />
-      <Card /> */}
+      <div>
+        
+      </div>
     </div>
   );
 }

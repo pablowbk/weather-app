@@ -5,6 +5,7 @@ import SearchBox from '../comps/searchbox/SearchBox';
 import Main from '../comps/main/Main';
 import Forecast from '../comps/forecast/Forecast';
 import Loader from '../comps/loader/Loader';
+import More from '../comps/main/More';
 // import SearchToggle from '../comps/searchbox/SearchToggle';
 
 // https://api.apixu.com/v1/forecast.json?key=https://wt-9fc35a21c84ecf4c970badb28c44af3b-0.sandbox.auth0-extend.com/weather-apixu&lang=es&days=7&q=-37.838848,-57.50456319999999
@@ -95,6 +96,7 @@ class App extends Component {
           current={current}
           location={location}
         />
+        <More />
         <Forecast forecast={forecast}/>
       </div>
     )

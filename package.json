@@ -1,6 +1,7 @@
 {
-  "name": "weather-app",
+  "name": "TuClima",
   "version": "0.1.0",
+  "description": "ReactJS Web Weather App",
   "private": true,
   "homepage": "https://pablowbk.github.io/weather-app",
   "dependencies": {

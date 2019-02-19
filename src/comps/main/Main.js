@@ -12,19 +12,27 @@ const Main = ({current, location}) => {
           <h1 className="temp">{current.temp_c}°C</h1>
         </div>
       </div>
+      <p className="subtext">{current.condition.text}</p>
+
       <p className="uv">
         <span>Indice UV: {current.uv}</span>
         <span>
-          <progress
-            max="11"
+          <meter
             value={current.uv}
+            min='0'
+            optimum='2'
+            low='3'
+            high='7'
+            max="11"
             style={{
-              background: current.uv < 9 ? 'rgb(53, 173, 63)' : null
+              // background: current.uv < 2 ? 'rgb(53, 173, 63)' : null,
+              // color: current.uv > 3 ? 'rgb(244, 235, 66)' : null
+              // background: current.uv > 5 ? 'rgb(244, 187, 65)' : null,
+              // background: current.uv > 7 ? 'rgb(244, 85, 65)' : null,
+              // background: current.uv > 10 ? 'rgb(181, 65, 244)' : null
             }}>
-            </progress></span>
-      </p>
+          </meter></span></p>
 
-      <p className="subtext">{current.condition.text}</p>
       <div className="conditions">
         <p className="feelslike">ST: {current.feelslike_c} °C</p>
         <p className="humidity">Hum: {current.humidity} %</p>

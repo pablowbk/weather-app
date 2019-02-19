@@ -80,12 +80,43 @@ body {
 
 .uv {
   padding: 0;
-  margin: -20px 0 20px 0;
+  margin: 10px 0 20px 0;
   font-size: 1em;
 }
 
 .uv span {
   padding: 0 10px;
+}
+
+.uv meter {
+  width: 100px;
+  height: 20px;
+  -webkit-appearance: none; /* Reset appearance */
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.uv meter::-webkit-meter-bar {
+  background: none; /* Required to get rid of the default background property */
+  background-color: whiteSmoke;
+  box-shadow: 0 5px 5px -5px #333 inset;
+}
+
+.uv meter::-webkit-meter-optimum-value {
+  box-shadow: 0 5px 5px -5px #999 inset;
+  background-image: linear-gradient(
+    90deg,
+    #8bcf69 5%,
+    #e6d450 5%,
+    #e6d450 15%,
+    #f28f68 15%,
+    #f28f68 55%,
+    #cf82bf 55%,
+    #cf82bf 95%,
+    #719fd1 95%,
+    #719fd1 100%
+  );
+  background-size: 100% 100%;
 }
 
 p {
@@ -109,7 +140,6 @@ p {
   box-shadow: 0 0px 20px -5px rgba(7, 111, 170,0.5);
   overflow: hidden;
   max-width: 900px;
-
 }
 
 .SearchBox input {
@@ -154,7 +184,40 @@ p {
   pointer-events: none;
 }
 
+/*MORE COMP*/
+.More {
+  background: none;
+  border: none;
+  margin: 10px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+.More:hover {
+  cursor: pointer;
+}
+
+.More:hover .more-svg{
+  box-shadow: 0 2px 5px -2px rgba(0,0,0,0.8);
+  cursor: pointer;
+  fill: rgba(7, 111, 170,.8);
+}
+
+.More .more-svg {
+  width: 48px;
+  border-radius: 50%;
+  padding: 0;
+  margin: 0;
+  pointer-events: none;
+  fill: rgba(7, 111, 170,1);
+  transition: all 200ms ease;
+
+}
+
+.More .more-svg-path {
+}
 
 /* FORECAST COMP */
 .Forecast {
@@ -186,10 +249,6 @@ p {
 
 }
 
-.flaticon {
-  position: absolute;
-  bottom: 0;
-}
 
 
 
@@ -205,6 +264,7 @@ p {
   }
 
   .SearchBox {
+    width: calc(100vw - 10%);
     margin: 0 10px;
     font-size: 1.4em;
   }
