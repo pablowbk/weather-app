@@ -14,24 +14,25 @@ const Main = ({current, location}) => {
       </div>
       <p className="subtext">{current.condition.text}</p>
 
-      <p className="uv">
-        <span>Indice UV: {current.uv}</span>
-        <span>
-          <meter
-            value={current.uv}
-            min='0'
-            optimum='2'
-            low='3'
-            high='7'
-            max="11"
-            style={{
-              // background: current.uv < 2 ? 'rgb(53, 173, 63)' : null,
-              // color: current.uv > 3 ? 'rgb(244, 235, 66)' : null
-              // background: current.uv > 5 ? 'rgb(244, 187, 65)' : null,
-              // background: current.uv > 7 ? 'rgb(244, 85, 65)' : null,
-              // background: current.uv > 10 ? 'rgb(181, 65, 244)' : null
-            }}>
-          </meter></span></p>
+      <div className="uv">
+        <div>Indice UV: <span>{current.uv}</span></div>
+        <div className="uv-meter">
+          <div className={`bar-content ${
+            current.uv < 3
+            ? 'low'
+            : current.uv < 6
+            ? 'mod'
+            : current.uv < 8
+            ? 'high'
+            : current.uv < 11
+            ? 'very-high'
+            : current.uv >= 11
+            ? 'ext'
+            : null
+          }`}>
+          </div>
+        </div>
+      </div>
 
       <div className="conditions">
         <p className="feelslike">ST: {current.feelslike_c} °C</p>

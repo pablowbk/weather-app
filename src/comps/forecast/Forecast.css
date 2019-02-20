@@ -1,0 +1,28 @@
+/* FORECAST COMP */
+.Forecast {
+  /*temp*/
+  /* display: none; */
+  /*temp*/
+  padding: 20px 20px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto;
+  /* box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.2); */
+}
+
+.Forecast .btn-getDays {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background: rgba(7, 111, 170,1);
+  color: #eee;
+  border: none;
+  transition: all 100ms ease-in;
+}
+
+.Forecast .btn-getDays:hover {
+  cursor: pointer;
+  color: #fff;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.4);
+
+}
