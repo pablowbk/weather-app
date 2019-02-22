@@ -1,8 +1,9 @@
 @import "../comps/loader/Loader.css";
 @import "../comps/searchbox/SearchBox.css";
 @import "../comps/main/Main.css";
-@import "../comps/main/More.css";
 @import "../comps/forecast/Forecast.css";
+@import "../comps/main/UvMeter.css";
+@import "../comps/main/More.css";
 @import "../comps/forecast/Card.css";
 
 html {

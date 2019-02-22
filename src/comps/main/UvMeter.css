@@ -1,0 +1,81 @@
+.uv-meter {
+  border-radius: 10px;
+  width: 100%;
+  height: 20px;
+  flex: 1;
+  overflow: hidden;
+  background: rgba(7, 111, 170,.2);
+  position: relative;
+  color: #fff;
+}
+
+.bar-content {
+  height: 100%;
+  background: #fff;
+  width: 5%;
+
+}
+
+/* CLASSES FOR UV INDEX COLOR CODING */
+.low {
+  background: #7dd053;
+  /* width: 18.2%; */
+}
+
+/* CLASSES FOR UV BAR WIDTH */
+
+.low-one {
+  background: #7dd053;
+  width: 9.09%;
+}
+
+.low-two {
+  background: #7dd053;
+  width: 18.18%;
+}
+
+.mod-three {
+  background: #ffeb5b;
+  width: 27.27%;
+}
+.mod-four {
+  background: #ffeb5b;
+  width: 36.28%;
+}
+.mod-five {
+  background: #ffeb5b;
+  width: 45.37%;
+}
+.high-six {
+  background: #f59a3c;
+  width: 54.46%;
+}
+.high-seven {
+  background: #f59a3c;
+  width: 63.55%;
+}
+.very-high-eight {
+  background: #f54646;
+  width: 72.64%;
+}
+.very-high-nine {
+  background: #f54646;
+  width: 81.73%;
+}
+
+.very-high-ten {
+  background: #f54646;
+  width: 90.82%;
+}
+
+.ext {
+  background: #b072e0;
+  width: 100%;
+}
+
+.uv-bar-inside {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}

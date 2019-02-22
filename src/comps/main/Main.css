@@ -45,9 +45,9 @@
 }
 
 .subtext {
-  padding: .5em;
-  font-weight: 600;
-  color: rgba(7, 111, 170,1);
+  padding: 0 0 .5em;
+  font-weight: 400;
+  /* color: rgba(7, 111, 170,1); */
 }
 
 .conditions {
@@ -72,45 +72,6 @@
   padding: 0 10px 0 5px;
   font-size: 1.2em;
   font-weight: 600;
-}
-
-.uv-meter {
-  display: inline-block;
-  border-radius: 10px;
-  width: 100%;
-  height: 25px;
-  flex: 1;
-  overflow: hidden;
-  background: rgba(7, 111, 170,.2);
-}
-
-.bar-content {
-  height: 100%;
-}
-
-.low {
-  background: #7dd053;
-  width: 20%;
-}
-
-.mod {
-  background: #ffeb5b;
-  width: 45.5%;
-}
-
-.high {
-  background: #f59a3c;
-  width: 63.6%;
-}
-
-.very-high {
-  background: #f54646;
-  width: 90.9%;
-}
-
-.ext {
-  background: #b072e0;
-  width: 100%;
 }
 
 p {
