@@ -1,0 +1,9 @@
+ rgb(149, 136, 211), violeta < -10
+rgb(150, 208, 216), celeste 0	
+rgb(94, 143, 197), azul < 10
+rgb(79, 139, 61), verde < 20
+ 
+rgb(222, 177, 6),  naranja < 25
+rgb(190, 65, 18), rojo < 34
+rgb(138, 42, 10), morado <= 34
+

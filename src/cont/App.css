@@ -4,7 +4,7 @@
 @import "../comps/forecast/Forecast.css";
 @import "../comps/main/UvMeter.css";
 @import "../comps/main/More.css";
-@import "../comps/forecast/Card.css";
+/* @import "../comps/forecast/Card.css"; */
 
 html {
   line-height: normal;
@@ -30,7 +30,7 @@ body {
   border-radius: 5px;
   padding: 2em;
   margin: auto;
-  box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2);
+  /* box-shadow: 0 5px 25px 0 rgba(0, 0, 0, 0.2); */
   display: flex;
   flex-direction: column;
   align-items: center;

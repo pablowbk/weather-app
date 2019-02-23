@@ -10,30 +10,24 @@ const Main = ({current, location}) => {
       <div className='main-temp'>
         <div className="temp-cond">
           <img src={logo} alt="imagen de clima" className="icon-weather" />
-          <h1 className="temp" style={
-              current.temp_c <= -10 ? {color: 'rgb(149, 136, 211)'}
+          <h1 className="temp"
+            style={
+              current.temp_c <= -10 ? {color: 'rgba(149, 136, 211,1)'}
               : current.temp_c <= 0
-              ? {color: 'rgb(150, 208, 216)'}
+              ? {color: 'rgba(150, 208, 216,1)'}
               : current.temp_c <= 10
-              ? {color: 'rgb(94, 143, 197)'}
+              ? {color: 'rgba(94, 143, 197,1)'}
               : current.temp_c <= 18
-              ? {color: 'rgb(79, 139, 61)'}
+              ? {color: 'rgba(79, 139, 61,1)'}
               : current.temp_c <= 25
-              ? {color: 'rgb(222, 177, 6)'}
+              ? {color: 'rgba(222, 177, 6,1)'}
               : current.temp_c <= 34
-              ? {color: 'rgb(190, 65, 18)'}
+              ? {color: 'rgba(190, 65, 18,1)'}
               : current.temp_c > 34
-              ? {color: 'rgb(138, 42, 10)'}
+              ? {color: 'rgba(138, 42, 10,1)'}
               : null
-              // rgb(149, 136, 211), violeta < -10
-              // rgb(150, 208, 216), celeste 0
-              // rgb(94, 143, 197), azul < 10
-              // rgb(79, 139, 61), verde < 20
-              //
-              // rgb(222, 177, 6),  naranja < 25
-              // rgb(190, 65, 18), rojo < 34
-              // rgb(138, 42, 10), morado <= 34
-            }>
+            }
+            >
             {current.temp_c}°C
           </h1>
         </div>

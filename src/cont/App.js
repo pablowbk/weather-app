@@ -5,14 +5,14 @@ import SearchBox from '../comps/searchbox/SearchBox';
 import Main from '../comps/main/Main';
 import Forecast from '../comps/forecast/Forecast';
 import Loader from '../comps/loader/Loader';
-import More from '../comps/main/More';
-// import SearchToggle from '../comps/searchbox/SearchToggle';
 
 // https://api.apixu.com/v1/forecast.json?key=https://wt-9fc35a21c84ecf4c970badb28c44af3b-0.sandbox.auth0-extend.com/weather-apixu&lang=es&days=7&q=-37.838848,-57.50456319999999
 // https://api.apixu.com/v1/forecast.json?key=<YOUR_API_KEY>&q=Buenos+Aires&days=6
 
 
 const API_KEY = '52e199fdabf04dcbb76111911191702';
+const semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
+"Domingo"];
 
 class App extends Component {
   constructor(props){
@@ -26,6 +26,7 @@ class App extends Component {
     };
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getWeekDay = this.getWeekDay.bind(this);
   }
 
   componentDidMount() {
@@ -50,6 +51,11 @@ class App extends Component {
       //End of Fetch
     });
   }
+
+//TRANSALTE DATE FROM API TO WEEKDAY
+getWeekDay(fecha) {
+  return semana[new Date(fecha * 1000).getDay()];
+}
 
 // HANDLE SEARCH INPUT VALUE
   handleSearchChange(event) {
@@ -80,13 +86,29 @@ class App extends Component {
     const { location, current, forecast } = this.state.clima;
 
     if (!this.state.error) {
-      console.log('Rendering, everything looks good...');
     }
     //conditional rendering ternary start
     return this.state.isLoaded
 
     ? (
-      <div className="App">
+      <div className="App"
+        // style={
+        //     current.temp_c <= -10 ? {backgroundColor: 'rgba(149, 136, 211,0.05)'}
+        //     : current.temp_c <= 0
+        //     ? {backgroundColor: 'rgba(150, 208, 216,0.05)'}
+        //     : current.temp_c <= 10
+        //     ? {backgroundColor: 'rgba(94, 143, 197,0.05)'}
+        //     : current.temp_c <= 18
+        //     ? {backgroundColor: 'rgba(79, 139, 61,0.05)'}
+        //     : current.temp_c <= 25
+        //     ? {backgroundColor: 'rgba(222, 177, 6,0.05)'}
+        //     : current.temp_c <= 34
+        //     ? {backgroundColor: 'rgba(190, 65, 18,0.05)'}
+        //     : current.temp_c > 34
+        //     ? {backgroundColor: 'rgba(138, 42, 10,0.05)'}
+        //     : null
+        //   }
+        >
         <SearchBox
           onSearchChange={this.handleSearchChange}
           onBtnSubmit={this.handleSubmit}
@@ -96,8 +118,8 @@ class App extends Component {
           current={current}
           location={location}
         />
-        <More />
-        <Forecast forecast={forecast}/>
+        {/* <More /> */}
+        <Forecast forecast={forecast} getWeekDay={this.getWeekDay}/>
       </div>
     )
 
