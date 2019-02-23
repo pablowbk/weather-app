@@ -6,7 +6,8 @@ const Forecast = ({forecast, getWeekDay}) => {
     <div className="Forecast">
       <button className='btn-getDays'
               onClick=
-              {() => {
+              {(e) => {
+                e.preventDefault();
                 const cardslist = document.querySelector('.CardsList');
                 cardslist.classList.toggle('outtasight');
                 }
