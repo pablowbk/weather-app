@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "description": "ReactJS Web Weather App",
   "private": true,
-  "homepage": "https://pablowbk.github.io/weather-app",
   "dependencies": {
     "gh-pages": "^2.0.1",
     "normalize.css": "^8.0.1",

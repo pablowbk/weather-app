@@ -6,11 +6,8 @@ import Main from '../comps/main/Main';
 import Forecast from '../comps/forecast/Forecast';
 import Loader from '../comps/loader/Loader';
 
-// https://api.apixu.com/v1/forecast.json?key=https://wt-9fc35a21c84ecf4c970badb28c44af3b-0.sandbox.auth0-extend.com/weather-apixu&lang=es&days=7&q=-37.838848,-57.50456319999999
-// https://api.apixu.com/v1/forecast.json?key=<YOUR_API_KEY>&q=Buenos+Aires&days=6
 
-
-const API_KEY = '52e199fdabf04dcbb76111911191702';
+const API_KEY = process.env.REACT_APP_API_KEY;
 const semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
 "Domingo"];
 
@@ -66,7 +63,6 @@ getWeekDay(fecha) {
   handleSubmit(event) {
     event.preventDefault();
     if (event.target.elements.searchfield.value.length > 0) {
-      // this.setState({query: event.target.elements.searchfield.value});
       fetch(this.state.defaultURL + '&q=' + this.state.query)
         .then(response => response.json())
         .then(jsonData => {
@@ -91,24 +87,7 @@ getWeekDay(fecha) {
     return this.state.isLoaded
 
     ? (
-      <div className="App"
-        // style={
-        //     current.temp_c <= -10 ? {backgroundColor: 'rgba(149, 136, 211,0.05)'}
-        //     : current.temp_c <= 0
-        //     ? {backgroundColor: 'rgba(150, 208, 216,0.05)'}
-        //     : current.temp_c <= 10
-        //     ? {backgroundColor: 'rgba(94, 143, 197,0.05)'}
-        //     : current.temp_c <= 18
-        //     ? {backgroundColor: 'rgba(79, 139, 61,0.05)'}
-        //     : current.temp_c <= 25
-        //     ? {backgroundColor: 'rgba(222, 177, 6,0.05)'}
-        //     : current.temp_c <= 34
-        //     ? {backgroundColor: 'rgba(190, 65, 18,0.05)'}
-        //     : current.temp_c > 34
-        //     ? {backgroundColor: 'rgba(138, 42, 10,0.05)'}
-        //     : null
-        //   }
-        >
+      <div className="App">
         <SearchBox
           onSearchChange={this.handleSearchChange}
           onBtnSubmit={this.handleSubmit}
@@ -118,7 +97,6 @@ getWeekDay(fecha) {
           current={current}
           location={location}
         />
-        {/* <More /> */}
         <Forecast forecast={forecast} getWeekDay={this.getWeekDay}/>
       </div>
     )
