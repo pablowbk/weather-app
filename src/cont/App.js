@@ -43,7 +43,7 @@ class App extends Component {
       .then(response => response.json())
       .then(jsonData => {
         jsonData.current.condition.icon = jsonData.current.condition.icon.replace('64x64','128x128')
-        this.setState({clima: jsonData,isLoaded: true})
+        this.setState({clima: jsonData, isLoaded: true, apiError: false})
       })
       .catch(err =>  {
         this.setState({apiError: true})
@@ -102,7 +102,7 @@ class App extends Component {
         .then(response => response.json())
         .then(jsonData => {
           jsonData.current.condition.icon = jsonData.current.condition.icon.replace('64x64','128x128');
-          this.setState({clima: jsonData });
+          this.setState({clima: jsonData, isLoaded: true, apiError: false});
         })
         .catch(err =>  {
           this.setState(prevState => {
