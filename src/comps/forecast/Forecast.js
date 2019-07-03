@@ -5,15 +5,15 @@ const Forecast = ({forecast, getWeekDay}) => {
   return (
     <div className="Forecast">
       <button className='btn-getDays'
-              onClick=
-              {(e) => {
-                e.preventDefault();
-                const cardslist = document.querySelector('.CardsList');
-                cardslist.classList.toggle('outtasight');
-                }
-              }
-            >
-      Pronóstico 7 días
+        onClick=
+        {(e) => {
+          e.preventDefault();
+          const cardslist = document.querySelector('.CardsList');
+          cardslist.classList.toggle('outtasight');
+        }
+        }
+      >
+        Pronóstico 7 días
       </button>
       <div className="CardWrapper">
         <div className="CardsList outtasight">
@@ -33,13 +33,13 @@ const Forecast = ({forecast, getWeekDay}) => {
                   </div>
                   <div className="card-minmax">
                     <p>
-                      <span className="card-tempmax">
-                        {parseInt(day.day.maxtemp_c)}°
+                      <span className="card-tempmin">
+                        {parseInt(day.day.mintemp_c)}°
                       </span>
                     </p>
                     <p>
-                      <span className="card-tempmin">
-                        {parseInt(day.day.mintemp_c)}°
+                      <span className="card-tempmax">
+                        {parseInt(day.day.maxtemp_c)}°
                       </span>
                     </p>
                   </div>
