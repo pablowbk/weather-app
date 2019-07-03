@@ -104,7 +104,7 @@ class App extends Component {
           this.setState({clima: jsonData });
         })
         .catch(err =>  {
-          this.setState({error: true})
+          this.setState({apiError: true, apiErrorMessage: err})
           console.log('an error occurred: ', err)
         })
       }
@@ -131,6 +131,8 @@ class App extends Component {
           <Main
             current={current}
             location={location}
+            apiError={apiError}
+            apiErrorMessage={apiErrorMessage}
           />
           <Forecast forecast={forecast} getWeekDay={this.getWeekDay}/>
         </div>

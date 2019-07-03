@@ -47,7 +47,7 @@
   border-top-color: rgba(170, 7, 7, 0.5);
   border-right-color: rgba(170, 7, 7, 0.5);
   border-left-color: rgba(170, 7, 7, 0.5);
-  border-bottom-color: rgba(170, 7, 7, 1);
+  border-bottom-color: rgba(170, 7, 7, 0.5);
 
   -webkit-animation: spinny 1s linear infinite;
   animation: spinny 1s linear infinite;

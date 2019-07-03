@@ -1,11 +1,11 @@
 import React from 'react';
 import UvMeter from './UvMeter';
 
-const Main = ({current, location}) => {
+const Main = ({current, location, apiError}) => {
   const logo = current.condition.icon;
   return (
     <div className='Main'>
-      <h2 className="location">{location.name}, {location.country}</h2>
+      <h2 className="location" style={apiError ? {color:"rgba(170, 7, 7, 1)"} : null }>{ apiError ? "No se ha encontrado la ciudad. Intente nuevamente." : `${location.name}, ${location.country}`}</h2>
 
       <div className='main-temp'>
         <div className="temp-cond">
