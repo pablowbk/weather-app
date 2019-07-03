@@ -34,17 +34,17 @@ const UvMeter = ({currentUV}) => {
       <div
         className="uv-bar-inside"
         style={currentUV < 8 ? {color: '#000'} : null}
-        >{
+      >{
         currentUV < 3
-        ? 'Bajo'
-        : currentUV < 6
-        ? 'Moderado'
-        : currentUV < 8
-        ? 'Alto'
-        : currentUV < 11
-        ? 'Muy Alto'
-        : currentUV >= 11
-        ? 'Extremo'
+          ? navigator.language.includes("es") ? 'Bajo' : 'Low'
+          : currentUV < 6
+            ? navigator.language.includes("es") ? 'Moderado' : 'Moderate'
+            : currentUV < 8
+              ? navigator.language.includes("es") ? 'Alto' : 'High'
+              : currentUV < 11
+                ? navigator.language.includes("es") ? 'Muy Alto' : 'Very High'
+                : currentUV >= 11
+                  ? navigator.language.includes("es") ? 'Extremo' : 'Extreme'
         : null
       }</div>
     </div>

@@ -8,7 +8,7 @@ const SearchBox = ({ query, onSearchChange, onBtnSubmit }) => {
         className="input"
         type="search"
         name="searchfield"
-        placeholder="Ingrese ciudad/coords..."
+        placeholder={navigator.language.includes("es") ? "Ingrese ciudad/coords..." : "Enter City Name/Coords..."}
         autoFocus={true}
         onChange={onSearchChange}
       />

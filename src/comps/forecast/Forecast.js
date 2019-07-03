@@ -13,7 +13,7 @@ const Forecast = ({forecast, getWeekDay}) => {
         }
         }
       >
-        Pronóstico 7 días
+        {navigator.language.includes("es") ? "Pronóstico 7 días" : "7 Day Forecast"}
       </button>
       <div className="CardWrapper">
         <div className="CardsList outtasight">

@@ -14,20 +14,20 @@ const Main = ({current, location, apiError}) => {
             style={
               current.temp_c <= -10 ? {color: 'rgba(149, 136, 211,1)'}
               : current.temp_c <= 0
-              ? {color: 'rgba(150, 208, 216,1)'}
-              : current.temp_c <= 10
-              ? {color: 'rgba(94, 143, 197,1)'}
-              : current.temp_c <= 18
-              ? {color: 'rgba(79, 139, 61,1)'}
-              : current.temp_c <= 25
-              ? {color: 'rgba(222, 177, 6,1)'}
-              : current.temp_c <= 34
-              ? {color: 'rgba(190, 65, 18,1)'}
-              : current.temp_c > 34
-              ? {color: 'rgba(138, 42, 10,1)'}
-              : null
+                ? {color: 'rgba(150, 208, 216,1)'}
+                : current.temp_c <= 10
+                  ? {color: 'rgba(94, 143, 197,1)'}
+                  : current.temp_c <= 18
+                    ? {color: 'rgba(79, 139, 61,1)'}
+                    : current.temp_c <= 25
+                      ? {color: 'rgba(222, 177, 6,1)'}
+                      : current.temp_c <= 34
+                        ? {color: 'rgba(190, 65, 18,1)'}
+                        : current.temp_c > 34
+                          ? {color: 'rgba(138, 42, 10,1)'}
+                          : null
             }
-            >
+          >
             {current.temp_c}°C
           </h1>
         </div>
@@ -35,12 +35,12 @@ const Main = ({current, location, apiError}) => {
       <p className="subtext">{current.condition.text}</p>
 
       <div className="uv">
-        <div>Ind/UV: <span>{current.uv}</span></div>
+        <div>{navigator.language.includes("es") ? "Ind/UV: " : "UV: "}<span>{current.uv}</span></div>
         <UvMeter currentUV={current.uv}/>
       </div>
 
       <div className="conditions">
-        <p className="feelslike">ST: {current.feelslike_c} °C</p>
+        <p className="feelslike">{`${navigator.language.includes("es") ? "ST: " : "Feels Like: " } ${current.feelslike_c} °C`}</p>
         <p className="humidity">Hum: {current.humidity} %</p>
       </div>
 
