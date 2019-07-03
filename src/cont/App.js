@@ -10,7 +10,7 @@ import ErrorMessage from '../comps/error/ErrorMessage';
 const API_KEY = process.env.REACT_APP_API_KEY;
 const semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
 "Domingo"];
-let navLanguage = navigator.language.match(/[a-zA-Z]/g).join("");
+var navLanguage = navigator.language.match(/^[a-zA-Z]{2}/).join("");
 
 class App extends Component {
   constructor(props){
@@ -22,7 +22,7 @@ class App extends Component {
       apiError: false,
       apiErrorMessage: null,
       locationPermissionStatus: null,
-      isLoaded: false
+      isLoaded: false,
     };
 
 
@@ -57,22 +57,23 @@ class App extends Component {
         case 3:
         console.log("Error Code: " + error.code);
         console.log("TIMEOUT")
-        this.setState({locationPermissionStatus: "Error: Time out. Request took too long"})
+        this.setState({locationPermissionStatus: "Error: Time out. Request took too long.", locationPermissionStatusES: "Error: Tiempo de espera agotado. Vuelva a intentar."})
         break;
         case 2:
         // ...
         console.log("Error Code: " + error.code);
         console.log("POSITION_UNAVAILABLE")
-        this.setState({locationPermissionStatus: "Error: Position Unavailable. Can not retrieve location."})
+        this.setState({locationPermissionStatus: "Error: Position Unavailable. Can not retrieve location.", locationPermissionStatusES: "Error: No es posible determinar la ubicación. Compruebe la configuración de su dispositivo."})
         break;
         case 1:
         // ...
         console.log("Error Code: " + error.code);
         console.log("PERMISSION_DENIED")
-        this.setState({locationPermissionStatus: "Error: Permission Denied. Browser can not access device's location. Please enable and retry."})
+        this.setState({locationPermissionStatus: "Error: Permission Denied. Browser can not access device's location. Please enable and retry.", locationPermissionStatusES: "Error: Permiso denegado. El navegador no puede acceder a la ubicación de su dispositivo. Por favor, habilítela y vuelva a intentar."})
         break;
         default:
-        console.log("An error has occurred, please try again")
+        console.log("An error has occurred, please try again");
+        this.setState({locationPermissionStatus: "An error has occurred, please try again", locationPermissionStatusES: "Ha ocurrido un error. Por favor, vuelva a intentar."});
       }
     }
 
@@ -104,7 +105,12 @@ class App extends Component {
           this.setState({clima: jsonData });
         })
         .catch(err =>  {
-          this.setState({apiError: true, apiErrorMessage: err})
+          this.setState(prevState => {
+            return {
+              apiError: true,
+              apiErrorMessage: navigator.language.includes("es") ? "Ha ocurrido un error. Compruebe que su dispositivo permita el acceso a su ubicación." : err
+            }
+          })
           console.log('an error occurred: ', err)
         })
       }
@@ -113,7 +119,7 @@ class App extends Component {
 
 
   render() {
-    const { isLoaded, apiError, apiErrorMessage, locationPermissionStatus } = this.state;
+    const { isLoaded, apiError, apiErrorMessage, locationPermissionStatus, locationPermissionStatusES } = this.state;
     const { location, current, forecast } = this.state.clima;
 
     //conditional rendering  start
@@ -138,7 +144,7 @@ class App extends Component {
         </div>
       )
     } else if (locationPermissionStatus !== null) {
-      return <ErrorMessage locationError={locationPermissionStatus} apiError={apiError} apiErrorMessage={apiErrorMessage} />
+      return <ErrorMessage locationError={locationPermissionStatus} locationErrorES={locationPermissionStatusES} apiError={apiError} apiErrorMessage={apiErrorMessage} />
     } else {
       return <Loader />
     }
