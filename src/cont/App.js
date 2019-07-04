@@ -8,8 +8,8 @@ import Loader from '../comps/loader/Loader';
 import ErrorMessage from '../comps/error/ErrorMessage';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
-const semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado",
-"Domingo"];
+const semana = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Satuday", "Sunday"];
 var navLanguage = navigator.language.match(/^[a-zA-Z]{2}/).join("");
 
 class App extends Component {
@@ -86,7 +86,8 @@ class App extends Component {
 
 //TRANSALTE DATE FROM API TO WEEKDAY
   getWeekDay(fecha) {
-    return semana[new Date(fecha * 1000).getDay()];
+    var weekDay = navLanguage.includes("es") ? semana : week;
+    return weekDay[new Date(fecha * 1000).getDay()];
   }
 
 // HANDLE SEARCH INPUT VALUE
