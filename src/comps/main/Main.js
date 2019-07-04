@@ -3,9 +3,10 @@ import UvMeter from './UvMeter';
 
 const Main = ({current, location, apiError}) => {
   const logo = current.condition.icon;
+  const searchFailed = navigator.language.includes("es") ? "No se ha encontrado la ciudad. Intente nuevamente." : "Sorry, couldn't find that place. Please try again.";
   return (
     <div className='Main'>
-      <h2 className="location" style={apiError ? {color:"rgba(170, 7, 7, 1)"} : null }>{ apiError ? "No se ha encontrado la ciudad. Intente nuevamente." : `${location.name}, ${location.country}`}</h2>
+      <h2 className="location" style={apiError ? {color:"rgba(170, 7, 7, 1)"} : null }>{ apiError ? searchFailed : `${location.name}, ${location.country}`}</h2>
 
       <div className='main-temp'>
         <div className="temp-cond">

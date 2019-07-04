@@ -19,7 +19,7 @@ const wrapper = {
 const ErrorMessage = ({apiError, apiErrorMessage, locationError, locationErrorES}) => (
   <div style={compStyles}>
     <div style={wrapper}>
-      <h3>Hmmm...<br/>Algo no esta bien.</h3>
+      <h3>Hmmm...<br/>{navigator.language.includes("es") ? "Algo no esta bien." : "Something's not right..."}</h3>
       <div className="spinner spinner-2" style={{background: "rgba(170, 7, 7, 1)"}}></div>
     </div>
     <h3 style={{margin: "20px", fontWeight: 400}}>{ navigator.language.includes("es") ? locationErrorES : locationError }</h3>
